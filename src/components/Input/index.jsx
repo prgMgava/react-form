@@ -1,3 +1,5 @@
+import { InputContainer } from "./styles";
+
 export const Input = ({
   label,
   icon: Icon,
@@ -7,14 +9,14 @@ export const Input = ({
   ...rest
 }) => {
   return (
-    <Container>
+    <div>
       <div className="label">
         {label} {!!error && <span> - {error}</span>}
       </div>
       <InputContainer isError={!!error}>
-        {Icon && <Icon size={20} />}
+        {Icon && <Icon size={20} />} 
         <input {...register(name)} {...rest} />
       </InputContainer>
-    </Container>
+    </div>
   );
 };

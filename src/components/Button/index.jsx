@@ -1,7 +1,9 @@
-const Button = ({children}) => {
+import { ButtonContainer } from "./styles"
+
+export const Button = ({children, ...rest}) => {
     return (
-        <Container>
+        <ButtonContainer type="submit" {...rest}>
             {children}
-        </Container>
+        </ButtonContainer>
     )
 }
