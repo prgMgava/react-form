@@ -11,8 +11,10 @@ export default createGlobalStyle`
 :root{
     --white:#fff;
     --white-input:#f0f0f0;
+    --blue-circle:#04befe;
     --blue:#5995fd;
     --blue-hover:#4d84e2;
+    --blue-dark-circle:#4481eb;
     --gray-placeholder: #aaa;
     --gray-light: #acacac;
     --gray:#444;
