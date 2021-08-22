@@ -1,4 +1,4 @@
-import { InputContainer } from "./styles";
+import { Container, InputContainer } from "./styles";
 
 export const Input = ({
   label,
@@ -9,14 +9,14 @@ export const Input = ({
   ...rest
 }) => {
   return (
-    <div>
+    <Container error={error}>
       <div className="label">
         {label} {!!error && <span> - {error}</span>}
       </div>
-      <InputContainer isError={!!error}>
+      <InputContainer error={error}>
         {Icon && <Icon size={20} />} 
         <input {...register(name)} {...rest} />
       </InputContainer>
-    </div>
+    </Container>
   );
 };

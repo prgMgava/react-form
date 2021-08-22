@@ -7,17 +7,21 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { Button } from "../../components/Button";
 import { Social } from "../../components/Social";
 import { Content, Container } from "../Signin/styles";
+import Panels from "../../components/Panels";
 
-export const Signin = () => {
+export const SignUp = () => {
   const schema = yup.object().shape({
     username: yup.string().required("Required field"),
     email: yup.string().required("Required field").email(),
-    password: yup.string().required("Required field").min(8,"Password with at least 8 characters"),
+    password: yup
+      .string()
+      .required("Required field")
+      .min(8, "Password with at least 8 characters"),
   });
 
   const {
     register,
-    handleSubmite,
+    handleSubmit,
     formState: { errors },
   } = useForm({
     resolver: yupResolver(schema),
@@ -27,37 +31,43 @@ export const Signin = () => {
     console.log(data);
   };
   return (
-    <Container>
-      <Content>
-        <form onSubmit={handleSubmite(onSubmitFunction)}>
-          <h2>Sign Up</h2>
-          <Input
-            label="Username"
-            icon={FaUserAlt}
-            name="username"
-            register={register}
-            error={errors.username?.message}
-          />
-          <Input
-            label="Email"
-            icon={FaEnvelope}
-            name="email"
-            register={register}
-            error={errors.email?.message}
-          />
-          <Input
-            label="Password"
-            icon={FaLock}
-            name="password"
-            register={register}
-            error={errors.password?.message}
-          />
-          <Button>sign up</Button>
-          <Social>Or sign up with social platforms</Social>
-        </form>
-      </Content>
-    </Container>
+    <>
+      <Panels path="/">Sign In</Panels>
+      <Container>
+        <Content>
+          <form onSubmit={handleSubmit(onSubmitFunction)}>
+            <h2>Sign Up</h2>
+            <Input
+              label="Username"
+              icon={FaUserAlt}
+              name="username"
+              type="text"
+              register={register}
+              error={errors.username?.message}
+            />
+            <Input
+              label="Email"
+              icon={FaEnvelope}
+              name="email"
+              type="email"
+              register={register}
+              error={errors.email?.message}
+            />
+            <Input
+              label="Password"
+              icon={FaLock}
+              type="password"
+              name="password"
+              register={register}
+              error={errors.password?.message}
+            />
+            <Button>sign up</Button>
+            <Social>Or sign up with social platforms</Social>
+          </form>
+        </Content>
+      </Container>
+    </>
   );
 };
 
-//minuto 9:55
+export default SignUp;

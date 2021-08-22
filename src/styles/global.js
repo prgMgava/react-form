@@ -15,6 +15,7 @@ export default createGlobalStyle`
     --blue:#5995fd;
     --blue-hover:#4d84e2;
     --blue-dark-circle:#4481eb;
+    --mesage-error:#eb7171;
     --gray-placeholder: #aaa;
     --gray-light: #acacac;
     --gray:#444;
